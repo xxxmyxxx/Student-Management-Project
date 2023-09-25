@@ -4,6 +4,7 @@ import com.project.payload.request.user.TeacherRequest;
 import com.project.payload.response.business.ResponseMessage;
 import com.project.payload.response.user.StudentResponse;
 import com.project.payload.response.user.TeacherResponse;
+import com.project.payload.response.user.UserResponse;
 import com.project.service.user.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -45,5 +46,29 @@ public class TeacherController {
         String userName = request.getHeader("username");
         return teacherService.getAllStudentByAdvisorUsername(userName);
     }
+
+    // TODO : AddLessonProgramToTeachersLessonProgram eklenecek
+
+    // Not: SaveAdvisorTeacherByTeacherId() ****************************
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
+    @PatchMapping("/saveAdvisorTeacher/{teacherId}") // http://localhost:8080/teacher/saveAdvisorTeacher/1 + Patch
+    public ResponseMessage<UserResponse> saveAdvisorTeacher(@PathVariable Long teacherId){
+        return teacherService.saveAdvisorTeacher(teacherId);
+    }
+    //bu delate mappinde olabilir pach mappingede olabilir icerisin sadece 1 fieldi silinecek
+    // Not : deleteAdvisorTeacherById() ********************************
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
+    @DeleteMapping("/deleteAdvisorTeacherById/{id}")
+    public ResponseMessage<UserResponse> deleteAdvisorTeacherById(@PathVariable Long id){
+        return teacherService.deleteAdvisorTeacherById(id);
+    }
+
+    // Not : getAllAdvisorTeacher() ************************************
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
+    @GetMapping("/getAllAdvisorTeacher")
+    public List<UserResponse> getAllAdvisorTeacher() {
+        return teacherService.getAllAdvisorTeacher();
+    }
+
 
 }

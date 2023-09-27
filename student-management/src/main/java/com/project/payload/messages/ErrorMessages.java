@@ -21,5 +21,7 @@ public class ErrorMessages {
     public static final String NOT_FOUND_ADVISOR_MESSAGE_WITH_USERNAME = "Error: Advisor Teacher with username %s not found" ;
     public static final String NOT_EXIST_ADVISOR_MESSAGE = "Error:  Advisor Teacher with id %s is not exist";
     public static final String NOT_FOUND_STUDENT_MESSAGE = "Error: Student not found with id %s";
+    public static final String NOT_FOUND_LESSON_PROGRAM_WITHOUT_ID_MESSAGE = "Error: Lesson Program with this field not found ";
+    public static final String LESSON_PROGRAM_ALREADY_EXIST = "Error: Course schedule can not be selected for the same hour and time  ";
 
 }

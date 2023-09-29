@@ -47,6 +47,7 @@ public class LessonProgram {
     @ManyToMany(mappedBy = "lessonsProgramList", fetch = FetchType.EAGER)
     private Set<User> users;
 
+    //lesson program silinirse bagli oldugu userlarida sil
     @PreRemove
     private void removeLessonProgramFromUser() {
         users.forEach(user -> user.getLessonsProgramList().remove(this));

@@ -31,6 +31,9 @@ public class ErrorMessages {
     public static final String LESSON_ALREADY_EXIST = "Error: Lesson is already exist ";
     public static final String NOT_FOUND_LESSON_MESSAGE = "Error: Lesson not found with id %s";
     public static final String NOT_FOUND_LESSON_MESSAGE_WITH_LESSON_NAME = "Error: Lesson not found with lesson name %s";
+    public static final String NOT_FOUND_LESSON_IN_LIST = "Error: Lesson not found in the list";
+    public static final String TIME_NOT_VALID_MESSAGE = "Error: incorrect time";
+    public static final String NOT_FOUND_LESSON_PROGRAM_MESSAGE = "Error: Lesson Program not found with id %s";
 
 
 

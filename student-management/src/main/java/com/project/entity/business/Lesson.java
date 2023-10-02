@@ -23,7 +23,7 @@ public class Lesson {
 
     private Integer creditScore;
 
-    private boolean isCompulsory;
+    private Boolean isCompulsory;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "lessons", cascade = CascadeType.REMOVE)

@@ -24,4 +24,7 @@ public class SuccessMessages {
     public static final String LESSON_FOUND = "Lesson is Found Successfully";
     public static final String LESSON_PROGRAM_SAVE = "Lesson Program is Saved";
     public static final String LESSON_PROGRAM_DELETE = "Lesson Program is Deleted Successfully";
+    public static final String LESSON_PROGRAM_ADD_TO_TEACHER = "Lesson Programs added to Teacher";
+    public static final String STUDENT_INFO_SAVE = "Student Info is Saved";
+    public static final String STUDENT_INFO_DELETE = "Student Info is Deleted Successfully";
 }

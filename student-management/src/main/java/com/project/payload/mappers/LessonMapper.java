@@ -21,7 +21,7 @@ public class LessonMapper {
                 .lessonId(lesson.getId())
                 .lessonName(lesson.getLessonName())
                 .creditScore(lesson.getCreditScore())
-                .isCompulsory(lesson.isCompulsory())
+                .isCompulsory(lesson.getIsCompulsory())
                 .build();
     }
 }

@@ -34,6 +34,8 @@ public class ErrorMessages {
     public static final String NOT_FOUND_LESSON_IN_LIST = "Error: Lesson not found in the list";
     public static final String TIME_NOT_VALID_MESSAGE = "Error: incorrect time";
     public static final String NOT_FOUND_LESSON_PROGRAM_MESSAGE = "Error: Lesson Program not found with id %s";
+    public static final String ALREADY_REGISTER_LESSON_MESSAGE = "Error : Lesson with lesson name %s is already registered";
+    public static final String STUDENT_INFO_NOT_FOUND = "Error: Student Info not found with id %s";
 
 
 

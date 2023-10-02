@@ -62,7 +62,7 @@ public class LessonService {
                 .build();
     }
 
-    private Lesson isLessonExistById(Long id){
+    public Lesson isLessonExistById(Long id){
         return lessonRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException(String.format(ErrorMessages.NOT_FOUND_LESSON_MESSAGE,id)));
     }
@@ -97,4 +97,6 @@ public class LessonService {
                 .map(this::isLessonExistById)
                 .collect(Collectors.toSet());
     }
+
+
 }

@@ -1,9 +1,7 @@
 package com.project.controller.business;
 
-import com.project.entity.business.LessonProgram;
 import com.project.payload.request.business.LessonProgramRequest;
 import com.project.payload.response.business.LessonProgramResponse;
-import com.project.payload.response.business.LessonResponse;
 import com.project.payload.response.business.ResponseMessage;
 import com.project.service.business.LessonProgramService;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +42,6 @@ public class LessonProgramController {
         return lessonProgramService.getLessonProgramById(id);
     }
 
-
     // Not : getAllLessonProgramUnassigned() ****
     //Teacher atamasi yapilmamis butun dersprogramlari getirecegiz
     @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER','TEACHER','STUDENT')")
@@ -67,7 +64,6 @@ public class LessonProgramController {
         return lessonProgramService.deleteLessonProgramById(id);
     }
 
-
     // Not : getAllWithPage() *******************
     @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER','TEACHER','STUDENT')")
     @GetMapping("/getAllLessonProgramByPage")
@@ -79,6 +75,7 @@ public class LessonProgramController {
     ){
         return  lessonProgramService.getAllLessonProgramByPage(page,size,sort,type) ;
     }
+
 
     // Not : getLessonProgramByTeacher() ********
     // bir Ogretmen kendine ait lessonProgramlari getiriyor
@@ -96,12 +93,20 @@ public class LessonProgramController {
         return lessonProgramService.getAllLessonProgramByUser(httpServletRequest);
     }
 
-    // Not: (odev) UpdateById() ***************
+    // Not: (ODEV) getLessonProgramsByTeacherId() ******
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
+    @GetMapping("/getAllLessonProgramByTeacherId/{teacherId}")
+    public Set<LessonProgramResponse> getByTeacherId(@PathVariable Long teacherId){
+        return lessonProgramService.getByTeacherId(teacherId);
+    }
 
+    // Not : ( ODEV ) getLessonProgramsByStudentId() ********
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER','ASSISTANT_MANAGER')")
+    @GetMapping("/getAllLessonProgramByStudentId/{studentId}")
+    public Set<LessonProgramResponse> getByStudentId(@PathVariable Long studentId){
+        return lessonProgramService.getByStudentId(studentId);
+    }
 
-
-
-
-
+    // Not: (Odev) Update() **********************************
 
 }

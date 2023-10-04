@@ -81,7 +81,6 @@ public class LessonService {
         }
     }
 
-
     // Not: getAllWithPage() ****************************
     public Page<LessonResponse> findLessonByPage(int page, int size, String sort, String type) {
 
@@ -98,5 +97,23 @@ public class LessonService {
                 .collect(Collectors.toSet());
     }
 
+    // Not: (ODEV) UpdateById() *************************
+    public LessonResponse updateLessonById(Long lessonId, LessonRequest lessonRequest) {
+        Lesson lesson = isLessonExistById(lessonId);
+        // !!! requeste ders ismi degisti ise unique olmasi gerekiyor kontrolu
+        if(
+                !(lesson.getLessonName().equals(lessonRequest.getLessonName())) &&
+                        (lessonRepository.existsByLessonName(lessonRequest.getLessonName())) // Derived Query
+        ) {
+            throw new ConflictException(
+                    String.format(ErrorMessages.LESSON_ALREADY_EXIST_WITH_LESSON_NAME,lessonRequest.getLessonName()));
+        }
+        // !!! DTO --> POJO
+        Lesson updatedLesson = lessonMapper.mapUpdateLessonRequestToLesson(lessonRequest,lessonId);
 
+        Lesson savedLesson = lessonRepository.save(updatedLesson);
+
+        return lessonMapper.mapLessonToLessonResponse(savedLesson);
+
+    }
 }

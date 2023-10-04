@@ -24,4 +24,13 @@ public class LessonMapper {
                 .isCompulsory(lesson.getIsCompulsory())
                 .build();
     }
+
+    public Lesson mapUpdateLessonRequestToLesson(LessonRequest lessonRequest, Long lessonId){
+        return Lesson.builder()
+                .id(lessonId)
+                .lessonName(lessonRequest.getLessonName())
+                .creditScore(lessonRequest.getCreditScore())
+                .isCompulsory(lessonRequest.getIsCompulsory())
+                .build();
+    }
 }
